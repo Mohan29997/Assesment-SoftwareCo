@@ -1,0 +1,23 @@
+const Images = {
+  apple: require('./images/apple.jpg'),
+  banana: require('./images/banana.jpg'),
+  buttermilk: require('./images/buttermilk.jpg'),
+  cheese: require('./images/cheese.jpg'),
+  cucmber: require('./images/cucmber.jpg'),
+  curd: require('./images/curd.jpg'),
+  grapes: require('./images/grapes.jpg'),
+  ladyfinger: require('./images/ladyfinger.jpg'),
+  onion: require('./images/onion.jpg'),
+  palak: require('./images/palak.jpg'),
+  panner: require('./images/panner.jpg'),
+  potato: require('./images/potato.jpg'),
+  watermelon: require('./images/watermelon.jpg'),
+  backGroundImage: require('./images/backGroundImage.png'),
+  logo: require('./images/logo.png'),
+  Vector: require('./images/Vector.png'),
+  search: require('./images/search.png'),
+  Line: require('./images/Line.png'),
+  heart: require('./images/heart.png'),
+  heartline: require('./images/heartline.png'),
+};
+export default Images;
