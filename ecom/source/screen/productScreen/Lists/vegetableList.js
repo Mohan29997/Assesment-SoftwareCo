@@ -9,10 +9,10 @@ import {
 } from 'react-native';
 import CONSTANTS from '../../../assets/constants';
 import Images from '../../../assets/images';
-import FruitsData from '../../../component/FruitsData';
+import VegetableData from '../../../component/VegetableData';
 import style from './style';
 
-export const FruitsList = () => {
+export const VegetableList = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [Data, setData] = useState([]);
   const renderComponent = ({item}) => {
@@ -46,7 +46,7 @@ export const FruitsList = () => {
     <>
       <View style={style.tagView}>
         <View>
-          <Text style={style.fruitStyle}>{CONSTANTS.Fruits}</Text>
+          <Text style={style.fruitStyle}>{CONSTANTS.Vegetables}</Text>
         </View>
         <TouchableOpacity style={style.imgStyle}>
           <Image source={Images.Vector_5} />
@@ -54,7 +54,7 @@ export const FruitsList = () => {
         </TouchableOpacity>
       </View>
       <FlatList
-        data={FruitsData}
+        data={VegetableData}
         keyExtractor={item => item?.id}
         renderItem={renderComponent}
         numColumns={2}

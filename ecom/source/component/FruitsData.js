@@ -7,6 +7,8 @@ const FruitsData = [
     price: '$10',
     image: `${Images.apple}`,
     like: false,
+    Status: 'In Stock',
+    categories: 'Fruits',
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ const FruitsData = [
     price: '$20',
     image: Images.banana,
     like: false,
+    Status: 'In Stock',
+    categories: 'Fruits',
   },
   {
     id: 3,
@@ -21,6 +25,8 @@ const FruitsData = [
     price: '$50',
     image: Images.watermelon,
     like: false,
+    Status: 'In Stock',
+    categories: 'Fruits',
   },
   {
     id: 4,
@@ -28,6 +34,8 @@ const FruitsData = [
     price: '$15',
     image: Images.grapes,
     like: false,
+    Status: 'In Stock',
+    categories: 'Fruits',
   },
 ];
 export default FruitsData;

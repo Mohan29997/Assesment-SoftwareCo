@@ -83,4 +83,37 @@ export default StyleSheet.create({
     bottom: 32,
     left: 30,
   },
+  buttonView: {
+    flexDirection: 'row',
+    width: width,
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+  },
+  vegetableButton: {
+    width: 100,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: COLORS.white,
+    shadowColor: COLORS.white,
+    justifyContent: 'center',
+  },
+  vegetableText: {
+    color: COLORS.black,
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  fruitButton: {
+    width: 100,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: COLORS.green2,
+    justifyContent: 'center',
+  },
+  fruitText: {
+    color: COLORS.white,
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
 });
