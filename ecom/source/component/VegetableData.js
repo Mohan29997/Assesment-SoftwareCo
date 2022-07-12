@@ -9,6 +9,8 @@ const VegetableData = [
     like: false,
     Status: 'In Stock',
     categories: 'Vegetable',
+    AddToCart: true,
+    Count: 1,
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ const VegetableData = [
     like: false,
     Status: 'In Stock',
     categories: 'Vegetable',
+    AddToCart: true,
+    Count: 1,
   },
   {
     id: 3,
@@ -27,6 +31,8 @@ const VegetableData = [
     like: false,
     Status: 'In Stock',
     categories: 'Vegetable',
+    AddToCart: true,
+    Count: 1,
   },
   {
     id: 4,
@@ -36,6 +42,8 @@ const VegetableData = [
     like: false,
     Status: 'In Stock',
     categories: 'Vegetable',
+    AddToCart: true,
+    Count: 1,
   },
 ];
 export default VegetableData;

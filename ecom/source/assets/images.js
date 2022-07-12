@@ -20,5 +20,7 @@ const Images = {
   heart: require('./images/heart.png'),
   heartline: require('./images/heartline.png'),
   Vector_5: require('./images/Vector-5.png'),
+  deleteButton: require('./images/deleteButton.png'),
+  rightarrow: require('./images/rightarrow.png'),
 };
 export default Images;

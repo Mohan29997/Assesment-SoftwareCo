@@ -15,6 +15,36 @@ import style from './style';
 export const FruitsList = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [Data, setData] = useState([]);
+  const [cart, setCart] = useState(true);
+  const [countNum, setCountNum] = useState(1);
+  const setItemCart = item => {
+    setCart(false);
+    FruitsData.map(ele => {
+      ele.AddToCart = false;
+      ele.Count = 1;
+    });
+  };
+  const onPlus = item => {
+    const co = countNum + 1;
+    FruitsData.filter(ele => {
+      if (ele?.id == item?.id) {
+        ele.Count += 1;
+        setCountNum(co);
+      }
+    });
+  };
+  const onMinus = item => {
+    const co = countNum - 1;
+    FruitsData.filter(ele => {
+      if (ele?.id == item?.id) {
+        ele.Count -= 1;
+        setCountNum(co);
+      }
+    });
+  };
+  const removeCart = () => {
+    setCart(true);
+  };
   const renderComponent = ({item}) => {
     const setDatacomponent = item => {
       setModalVisible(true);
@@ -36,9 +66,36 @@ export const FruitsList = () => {
           <Text style={style.priceStyle}>{item?.price}</Text>
           <Text style={style.prStyle}>{`(${item?.price}$/KG)`}</Text>
         </View>
-        <TouchableOpacity style={style.addtoCart}>
-          <Text style={style.addToCartText}>{CONSTANTS.addToCart}</Text>
-        </TouchableOpacity>
+        {cart ? (
+          <TouchableOpacity
+            style={style.addtoCart}
+            onPress={() => setItemCart(item)}>
+            <Text style={style.addToCartText}>{CONSTANTS.addToCart}</Text>
+          </TouchableOpacity>
+        ) : (
+          <View style={style.countbuttonView}>
+            {item.Count == 1 ? (
+              <TouchableOpacity
+                style={style.MinusSign}
+                onPress={() => removeCart(item)}>
+                <Image source={Images.deleteButton} />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                style={style.MinusSign}
+                onPress={() => onMinus(item)}>
+                <Text style={style.textStyle}>-</Text>
+              </TouchableOpacity>
+            )}
+
+            <Text style={style.countsStyle}>{item?.Count}</Text>
+            <TouchableOpacity
+              style={style.MinusSign}
+              onPress={() => onPlus(item)}>
+              <Text style={style.textStyle}>+</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     );
   };
@@ -114,6 +171,16 @@ export const FruitsList = () => {
             </View>
             <View>
               <Text style={style.contentStyle}>{CONSTANTS.taskCOntent}</Text>
+            </View>
+            <View style={style.bottomView}>
+              <View>
+                <Text style={style.itemsView}>{'1 items'}</Text>
+                <Text style={style.itemsssView}>{Data?.price}</Text>
+              </View>
+              <TouchableOpacity style={style.goTOCatStyle}>
+                <Text style={style.itView}>{CONSTANTS.goToCart}</Text>
+                <Image source={Images.rightarrow} />
+              </TouchableOpacity>
             </View>
           </View>
         </View>

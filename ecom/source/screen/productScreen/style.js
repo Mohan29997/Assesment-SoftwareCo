@@ -116,4 +116,18 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+  goTOCatStyle: {
+    width: '100%',
+    height: 50,
+    borderRadius: 20,
+    backgroundColor: COLORS.green,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical:20,
+
+  },
+  itView: {
+    color: COLORS.white,
+  },
 });

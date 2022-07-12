@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Image, Text, TouchableOpacity, TextInput} from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+} from 'react-native';
 import CONSTANTS from '../../assets/constants';
 import Images from '../../assets/images';
 import {DairyList} from './Lists/DairyList';
@@ -28,7 +35,7 @@ export const ProductScreen = () => {
     setVegetableBut(false);
   };
   return (
-    <View>
+    <ScrollView>
       <View style={style.mainView}>
         <Image
           style={style.backImageStyle}
@@ -85,6 +92,10 @@ export const ProductScreen = () => {
       {dairyBut ? <DairyList /> : null}
       {vegetableBut ? <VegetableList /> : null}
       {fruitsBut ? <FruitsList /> : null}
-    </View>
+      <TouchableOpacity style={style.goTOCatStyle}>
+        <Text style={style.itView}>{CONSTANTS.goToCart}</Text>
+        <Image source={Images.rightarrow} />
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
