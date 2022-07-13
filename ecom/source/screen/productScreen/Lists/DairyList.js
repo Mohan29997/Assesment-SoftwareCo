@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
   View,
   Image,
@@ -7,40 +8,56 @@ import {
   FlatList,
   Modal,
 } from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import CONSTANTS from '../../../assets/constants';
 import Images from '../../../assets/images';
 import DairyData from '../../../component/DairyData';
+import {CartAction} from '../../../redux/action/action';
 import style from './style';
 
 export const DairyList = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [Data, setData] = useState([]);
+  const [listData, setListData] = useState(DairyData);
   const [cart, setCart] = useState(true);
   const [countNum, setCountNum] = useState(1);
-  const setItemCart = item => {
-    setCart(false);
-    DairyData.map(ele => {
-      ele.AddToCart = false;
-      ele.Count = 1;
-    });
-  };
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const data = useSelector(state => state?.data?.data);
+
+  const setItemCart = useCallback(
+    item => {
+      setCart(false);
+      listData.filter(ele => {
+        console.log('31', ele);
+        if (ele?.id == item?.id) {
+          ele.AddToCart = 1;
+          ele.Count = 1;
+          dispatch(CartAction(listData));
+        }
+      });
+    },
+    [dispatch, listData],
+  );
   const onPlus = item => {
     const co = countNum + 1;
-    DairyData.filter(ele => {
+    listData.filter(ele => {
       if (ele?.id == item?.id) {
         ele.Count += 1;
         setCountNum(co);
       }
     });
+    dispatch(CartAction(listData));
   };
   const onMinus = item => {
     const co = countNum - 1;
-    DairyData.filter(ele => {
+    listData.filter(ele => {
       if (ele?.id == item?.id) {
         ele.Count -= 1;
         setCountNum(co);
       }
     });
+    dispatch(CartAction(listData));
   };
   const removeCart = () => {
     setCart(true);
@@ -50,6 +67,7 @@ export const DairyList = () => {
       setModalVisible(true);
       setData(item);
     };
+    const data = item?.AddToCart;
     return (
       <View style={style.mainView}>
         <Image style={style.imgView} source={item?.image} />
@@ -66,7 +84,7 @@ export const DairyList = () => {
           <Text style={style.priceStyle}>{item?.price}</Text>
           <Text style={style.prStyle}>{`(${item?.price}$/KG)`}</Text>
         </View>
-        {cart ? (
+        {data != 1 ? (
           <TouchableOpacity
             style={style.addtoCart}
             onPress={() => setItemCart(item)}>
@@ -111,11 +129,19 @@ export const DairyList = () => {
         </TouchableOpacity>
       </View>
       <FlatList
-        data={DairyData}
+        data={listData}
         keyExtractor={item => item?.id}
         renderItem={renderComponent}
         numColumns={2}
       />
+      <TouchableOpacity
+        style={style.goTCatStyle}
+        onPress={() => {
+          navigation.navigate('Cart');
+        }}>
+        <Text style={style.iView}>{CONSTANTS.goToCart}</Text>
+        <Image source={Images.rightarrow} />
+      </TouchableOpacity>
       <Modal visible={modalVisible} transparent={true}>
         <View style={style.lastsubVIew}>
           <View style={style.lastView}>

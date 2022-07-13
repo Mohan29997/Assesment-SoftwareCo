@@ -207,5 +207,19 @@ export default StyleSheet.create({
   },
   itView:{
     color:COLORS.white
-  }
+  },
+  goTCatStyle: {
+    width: '100%',
+    height: 50,
+    borderRadius: 20,
+    backgroundColor: COLORS.green,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginVertical:20,
+
+  },
+  iView: {
+    color: COLORS.white,
+  },
 });

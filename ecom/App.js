@@ -7,10 +7,16 @@
  */
 
 import React from 'react';
-import {ProductScreen} from './source/screen/productScreen/productScreen';
+import {Provider} from 'react-redux';
+import {store} from './source/redux/store/store';
+import {MainScreen} from './source/routes/mainRoute';
 
 const App = () => {
-  return <ProductScreen />;
+  return (
+    <Provider store={store}>
+      <MainScreen />
+    </Provider>
+  );
 };
 
 export default App;

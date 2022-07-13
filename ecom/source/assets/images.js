@@ -22,5 +22,6 @@ const Images = {
   Vector_5: require('./images/Vector-5.png'),
   deleteButton: require('./images/deleteButton.png'),
   rightarrow: require('./images/rightarrow.png'),
+  edit: require('./images/edit.png'),
 };
 export default Images;

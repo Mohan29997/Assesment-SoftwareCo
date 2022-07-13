@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
   View,
@@ -18,7 +19,7 @@ export const ProductScreen = () => {
   const [vegetableBut, setVegetableBut] = useState(true);
   const [fruitsBut, setfruitsBut] = useState(false);
   const [dairyBut, setdairyBut] = useState(false);
-
+  const navigation = useNavigation();
   const onVegButtonPress = () => {
     setfruitsBut(false);
     setdairyBut(false);
@@ -92,10 +93,14 @@ export const ProductScreen = () => {
       {dairyBut ? <DairyList /> : null}
       {vegetableBut ? <VegetableList /> : null}
       {fruitsBut ? <FruitsList /> : null}
-      <TouchableOpacity style={style.goTOCatStyle}>
+      {/* <TouchableOpacity
+        style={style.goTOCatStyle}
+        onPress={() => {
+          navigation.navigate('Cart');
+        }}>
         <Text style={style.itView}>{CONSTANTS.goToCart}</Text>
         <Image source={Images.rightarrow} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </ScrollView>
   );
 };

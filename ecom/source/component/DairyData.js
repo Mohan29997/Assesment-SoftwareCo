@@ -8,7 +8,8 @@ const DairyData = [
     image: `${Images.buttermilk}`,
     like: false,
     Status: 'In Stock',
-    categories: 'Dairy',  
+    categories: 'Dairy',
+    // AddToCart: 0,
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const DairyData = [
     image: Images.cheese,
     like: false,
     Status: 'In Stock',
-    categories: 'Dairy',  
+    categories: 'Dairy',
+    // AddToCart: 0,  
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ const DairyData = [
     image: Images.curd,
     like: false,
     Status: 'In Stock',
-    categories: 'Dairy',  
+    categories: 'Dairy',
+    // AddToCart: 0, 
   },
   {
     id: 4,
@@ -35,7 +38,8 @@ const DairyData = [
     image: Images.panner,
     like: false,
     Status: 'In Stock',
-    categories: 'Dairy',  
+    categories: 'Dairy',
+    // AddToCart: 0,  
   },
 ];
 export default DairyData;
